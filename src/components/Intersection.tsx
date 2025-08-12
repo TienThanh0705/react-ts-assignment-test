@@ -304,7 +304,14 @@ ${intersectStreamingDemo.toString()}`;
   useEffect(() => {
     handleRun();
   }, []);
-
+const btnSky: React.CSSProperties = {
+  padding: "8px 12px",
+  borderRadius: 10,
+  border: "1px solid #0284c7", // xanh da trời đậm hơn một chút
+  background: "#0ea5e9", // xanh da trời
+  color: "white", // chữ trắng
+  cursor: "pointer",
+};
   return (
     <div
       role="region"
@@ -373,9 +380,9 @@ ${intersectStreamingDemo.toString()}`;
       </div>
       <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 10, flexWrap: "wrap" }}>
         <div style={{ display: "flex", gap: 8 }}>
-          <button onClick={fillExample1} title="Đổ dữ liệu Ví dụ 1" style={btnLight}>Ví dụ 1</button>
-          <button onClick={fillExample2} title="Đổ dữ liệu Ví dụ 2" style={btnLight}>Ví dụ 2</button>
-          <button onClick={fillRandom} title="Sinh dữ liệu ngẫu nhiên (0..10)" style={btnLight}>Random</button>
+          <button onClick={fillExample1} title="Đổ dữ liệu Ví dụ 1" style={btnSky}>Ví dụ 1</button>
+          <button onClick={fillExample2} title="Đổ dữ liệu Ví dụ 2" style={btnSky}>Ví dụ 2</button>
+          <button onClick={fillRandom} title="Sinh dữ liệu ngẫu nhiên (0..10)" style={btnSky}>Random</button>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
@@ -395,7 +402,7 @@ ${intersectStreamingDemo.toString()}`;
             <option value="two-pointers">Two Pointers (sorted / sort trước)</option>
           </select>
 
-          <button onClick={handleRun} style={btnPrimary}>Chạy</button>
+          <button onClick={handleRun} style={btnSky}>Chạy</button>
         </div>
       </div>
       {error ? (
@@ -446,7 +453,7 @@ ${intersectStreamingDemo.toString()}`;
         <pre style={{ whiteSpace: "pre-wrap" }}>{fullSnippet}</pre>
       </details>
       <div style={{ marginTop: 12 }}>
-        <button onClick={runBench} title="Chạy benchmark nhanh (random 0..1000)" style={btnLight}>
+        <button onClick={runBench} title="Chạy benchmark nhanh (random 0..1000)" style={btnSky }>
           Chạy benchmark nhỏ
         </button>
         {bench && (
