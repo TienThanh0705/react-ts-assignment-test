@@ -1,0 +1,306 @@
+/* ===== Reset nhẹ & nền sáng ===== */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: #f5f7fb;               /* nền sáng */
+  color: #0f172a;                    /* text tối vừa */
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Loại bỏ center cứng của template Vite mặc định */
+:root { color-scheme: light; }
+
+/* ===== Layout khung chính ===== */
+.container {
+  max-width: 1060px;
+  margin: 48px auto;                 /* căn giữa theo chiều ngang */
+  padding: 0 20px;
+}
+
+/* ===== Tiêu đề ===== */
+h1 {
+  margin: 0 0 20px;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: .2px;
+  color: #0b1222;
+}
+
+/* ===== Tabs (nút chuyển Section) ===== */
+.nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  appearance: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #2563eb;
+  background: #2563eb;        /* xanh mặc định */
+  color: #fff;                /* chữ trắng */
+  font-weight: 600;
+  letter-spacing: .2px;
+  box-shadow: 0 2px 8px rgba(16,24,40,.06);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, background .12s ease;
+}
+.tab-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(16,24,40,.10);
+  background: #1e4fd9;        /* xanh đậm hơn khi hover */
+}
+.tab-btn.active {
+  background: #1e40af;        /* xanh navy đậm hơn khi active */
+  border-color: #1e40af;
+  box-shadow: 0 10px 24px rgba(30,64,175,.25);
+}
+
+/* ===== Card chung ===== */
+.card {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #eef2f7;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 14px 0;
+  box-shadow: 0 10px 24px rgba(16,24,40,.08);
+}
+
+/* H2/H3 cân khoảng cách */
+.card h2, .card h3 { margin-top: 0; }
+
+/* ===== Hàng linh hoạt ===== */
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ===== Input / Button ===== */
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #fff;
+  color: #0f172a;
+}
+button {
+  cursor: pointer;
+}
+
+/* Footer nút phải */
+.footer {
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  margin-top: 14px;
+}
+
+/* ===== Badge ===== */
+.badge {
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:9999px;
+  background:#e8efff;
+  color:#1e40af;
+  font-size:12px;
+  font-weight: 600;
+}
+
+/* ===== Skeleton ===== */
+.skeleton {
+  background: linear-gradient(90deg, #f2f4f7 25%, #e9edf3 37%, #f2f4f7 63%);
+  animation: shimmer 1.2s infinite;
+  background-size: 400% 100%;
+  border-radius: 10px;
+}
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ===== details/pre hiển thị code đẹp ===== */
+details summary {
+  cursor: pointer;
+  user-select: none;
+  padding: 6px 0;
+}
+pre {
+  overflow: auto;
+  background: #0b1222;
+  color: #e5e7eb;
+  border: 1px solid #e5e7eb33;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+/* ===== Responsive nhỏ ===== */
+@media (max-width: 640px) {
+  h1 { font-size: 28px; }
+  .tab-btn { padding: 8px 12px; border-radius: 10px; }
+  .card { padding: 16px; }
+}
+.card .row button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #2563eb; /* Xanh dương */
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.card .row button:hover {
+  background-color: #1e4fd9; /* Xanh đậm hơn khi hover */
+}
+
+/* .modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: grid;
+  place-items: center;
+  z-index: 50;
+} */
+.modal-panel {
+  width: min(640px, 92vw);
+  background: #fff;
+  color: #0f172a;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 24px 56px rgba(16,24,40,.22);
+  outline: none;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+/* --- Nút close: nền xanh, chữ trắng --- */
+.close-btn {
+  border: none !important;
+  background: #2563eb !important;   /* xanh */
+  color: #fff !important;            /* trắng */
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 10px;
+  line-height: 1;
+  transition: background-color .2s ease, transform .12s ease;
+}
+.close-btn:hover {
+  background: #1e4fd9 !important;
+  transform: translateY(-1px);
+}
+.close-btn:focus {
+  outline: 3px solid #bfdbfe; /* focus ring nhẹ */
+  outline-offset: 2px;
+}
+
+/* (Tuỳ chọn) tất cả button bên trong modal cũng xanh */
+.modal-panel button:not(.close-btn) {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background-color .2s ease, transform .12s ease;
+}
+.modal-panel button:not(.close-btn):hover {
+  background: #1e4fd9;
+  transform: translateY(-1px);
+}
+.card button {
+  border: none;
+  background: #2563eb;  /* xanh */
+  color: #fff;          /* trắng */
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .12s ease;
+}
+.card button:hover {
+  background: #1e4fd9;
+  transform: translateY(-1px);
+}
+.card button:focus {
+  outline: 3px solid #bfdbfe;
+  outline-offset: 2px;
+}
+.btn {
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 2px 8px rgba(16,24,40,.06);
+}
+.btn:hover { background: #1e4fd9; transform: translateY(-1px); }
+.btn:focus { outline: 3px solid #bfdbfe; outline-offset: 2px; }
+.btn-primary { background: #2563eb; }
+.btn-primary-outline {
+  background: #fff; color: #2563eb; border: 1px solid #2563eb;
+}
+.btn-primary-outline:hover {
+  background:#2563eb; color:#fff;
+}
+
+/* ===== Modal look & feel ===== */
+.modal-backdrop.pretty {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(3px);
+  z-index: 50;
+}
+
+.modal-panel.elevated {
+  width: 100%;
+  max-height: min(86vh, 900px);
+  overflow: auto;
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid #eef2f7;
+  border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(16,24,40,.24);
+  outline: none;
+}
+.size-sm { max-width: 420px; padding: 16px; }
+.size-md { max-width: 620px; padding: 18px; }
+.size-lg { max-width: 820px; padding: 20px; }
+
+/* Header / Body / Footer */
+.modal-header.nice {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 6px;
+}
+.modal-title { margin: 0; font-size: 18px; font-weight: 700; }
+.modal-body { margin-top: 6px; }
+.modal-footer { display:flex; justify-content:flex-end; gap:10px; margin-top: 14px; }
+
+/* Close button reuse .btn but more compact */
+.close-btn { padding: 6px 10px; border-radius: 10px; }
+
+/* Subtle enter animation */
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-in { animation: modalIn .18s ease-out; }
